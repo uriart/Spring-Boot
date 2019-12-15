@@ -27,7 +27,7 @@ public class InicioController {
     }
 
     @RequestMapping(value = "/filtrar", method = RequestMethod.POST)
-    public String anadirEjercicio(Model model,
+    public String filtrarEjercicio(Model model,
             @RequestParam("inputZonaMuscular") String zonaMuscular) {
 
         List<Ejercicio> ejercicios = ejercicioService.buscarEjercicios();
@@ -38,6 +38,7 @@ public class InicioController {
                 Ejercicio ejer = new Ejercicio();
                 ejer.setNombre(ejercicios.get(x).getNombre());
                 ejer.setImagenUrl(ejercicios.get(x).getImagenUrl());
+                ejer.setId(ejercicios.get(x).getId());
                 salida.add(ejer);
             }
         }
@@ -47,6 +48,7 @@ public class InicioController {
                 Ejercicio ejer = new Ejercicio();
                 ejer.setNombre(ejercicios.get(x).getNombre());
                 ejer.setImagenUrl(ejercicios.get(x).getImagenUrl());
+                ejer.setId(ejercicios.get(x).getId());
                 salida.add(ejer);
             }
         }
@@ -54,5 +56,15 @@ public class InicioController {
         model.addAttribute("ejerciciosSalida", salida);
 
         return "inicio";
+    }
+
+    @RequestMapping("/detalles")
+    public String paginaDetalle(Model model,
+            @RequestParam("idEjercicio") String idEjercicio) {
+
+        Ejercicio detallEjercicio = ejercicioService.detalleEjercicio(Integer.valueOf(idEjercicio));
+        model.addAttribute("detallesSalida", detallEjercicio);
+
+        return "detalles";
     }
 }

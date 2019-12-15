@@ -18,4 +18,9 @@ public class EjercicioService {
     public List<Ejercicio> buscarEjercicios() {
         return ejercicioRepository.findAll(Sort.by("nombre"));
     }
+    
+        public Ejercicio detalleEjercicio(Integer id) {
+        //Retrona un resultado según el ID de la tabla
+        return ejercicioRepository.getOne(id);
+    }
 }

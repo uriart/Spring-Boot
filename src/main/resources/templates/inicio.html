@@ -85,9 +85,12 @@
                     <div class="card-body">
                         <h5 th:text="${ejercicio.nombre}" class="card-title"></h5>
                     </div>
-                    <div class="card-footer text-muted">
-                        <a href="/" class="btn btn-info disabled">Detalles</a>
-                    </div>
+                    <form class="card-footer text-muted" action="/detalles" method="POST">
+                        <input type="text" th:value="${ejercicio.id}" name="idEjercicio" hidden>
+                        <button type="submit" class="btn btn-info">Detalles</button>
+                        <!-- Alternativa para pasar parámetros al controller -->
+                        <!-- <a th:href="@{/detalles/(idEjercicio=${ejercicio.id})}" class="btn btn-info">Detalles</a> -->
+                    </form>
                 </div>
             </div>
         </div>
