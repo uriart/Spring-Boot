@@ -1,0 +1,58 @@
+package com.uriart.workout.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Ejercicio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String nombre;
+    private String imagenUrl;
+    private String zonaMuscular;
+    private String zonaMuscular2;
+
+    public String getZonaMuscular2() {
+        return zonaMuscular2;
+    }
+
+    public void setZonaMuscular2(String zonaMuscular2) {
+        this.zonaMuscular2 = zonaMuscular2;
+    }
+   
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+        
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
+    public String getZonaMuscular() {
+        return zonaMuscular;
+    }
+
+    public void setZonaMuscular(String zonaMuscular) {
+        this.zonaMuscular = zonaMuscular;
+    }
+  
+}

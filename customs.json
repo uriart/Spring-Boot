@@ -1,0 +1,23 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {
+            "context": "p"
+        },
+        "integrity": {
+            "context": "link"
+        },
+        "th:src": {
+            "context": "img"
+        },
+        "href": {
+            "context": "button"
+        },
+        "th:each": {
+            "context": "div"
+        },
+        "value": {
+            "context": "select"
+        }
+    }
+}

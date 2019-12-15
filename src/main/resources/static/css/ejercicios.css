@@ -1,0 +1,13 @@
+.vj-destacados .card {
+    height: 100%;
+}
+
+.vj-destacados .card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.vj-destacados .puntuacion img {
+    height: 30px;
+    width: 30px;
+}

@@ -1,0 +1,106 @@
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>Workout</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">
+                <img src="img/weight_icon.png" width="30" height="30" alt="">
+                Do it!
+            </a>
+        </nav>
+
+        <!-- FILTRO -->
+        <div class="accordion" id="accordionFiltro">
+            <form class="card" action="/filtrar" method="POST">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Filtro
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionFiltro">
+                    <div class="card-body">
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputZonaMuscular">Zona muscular</label>
+                            </div>
+                            <select class="custom-select"  name="inputZonaMuscular" id="inputZonaMuscular">
+                                <option value="1">Todas</option>
+                                <option value="trenSuperior">Tren superior</option>
+                                <option value="trenInferior">Tren inferior</option>
+                                <option value="pecho">Pecho</option>
+                                <option value="espalda">Espalda</option>
+                                <option value="brazos">Brazos</option>
+                                <option value="hombro">Hombro</option>
+                                <option value="gluteos">Glúteos</option>
+                                <option value="cuadriceps">Cuadriceps</option>
+                                <option value="gemelos">Gemelos</option>
+
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputMaterial">Excluir material</label>
+                            </div>
+                            <div class="input-group-prepend ml-3">
+                                <!-- Checkbox material -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="material" type="checkbox" id="barraOlimpica" value="barra">
+                                    <label class="form-check-label" for="barraOlimpica">Barra olimpica</label>
+                                    <input class="form-check-input ml-3" name="material" type="checkbox" id="rack" value="rack">
+                                    <label class="form-check-label" for="rack">Rack</label>
+                                    <input class="form-check-input ml-3" name="material" type="checkbox" id="barraDominadas" value="barraDominadas">
+                                    <label class="form-check-label" for="barraDominadas">Barra de dominadas</label>
+                                    <input class="form-check-input ml-3" name="material" type="checkbox" id="banco" value="banco">
+                                    <label class="form-check-label" for="banco">Banco</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Filtrar</button>
+
+                    </div>
+            </form>
+        </div>
+    </div>
+    <!-- FILTRO -->
+
+    <div class="container mt-4 ej-filtrados">
+        <div class="row">
+            <div th:each="ejercicio : ${ejerciciosSalida}" class="col-md-3 mb-4">
+                <div class="card">
+                    <img th:src="${ejercicio.imagenUrl}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 th:text="${ejercicio.nombre}" class="card-title"></h5>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="/" class="btn btn-info disabled">Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
