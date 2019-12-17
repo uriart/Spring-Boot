@@ -29,15 +29,9 @@ drop table if exists material;
 
 create table material (
     id int primary key auto_increment,
-    nombreMaterial varchar(200) not null
+    nombre_material varchar(200) not null
 );
 
 INSERT INTO `material` 
-(`nombreMaterial`) VALUES 
+(`nombre_material`) VALUES 
 ('barra'), ('banco'), ('barra dominadas'), ('mancueras');
-
-
-drop table if exists detalle_ejercicio_material;
-
-CREATE TABLE `ejercicios`.`detalle_ejercicio_material` ( 
-    `id` INT NOT NULL , `idMaterial` INT NOT NULL , `idEjercicio` INT NOT NULL , PRIMARY KEY (`id`), UNIQUE `FOREIGN KEY` (`idMaterial`, `idEjercicio`)) ENGINE = InnoDB;
