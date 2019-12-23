@@ -35,13 +35,13 @@ public class InicioController {
     @RequestMapping(value = "/filtrar", method = RequestMethod.POST)
     public String filtrarEjercicio(Model model,
             @RequestParam("inputZonaMuscular") String zonaMuscular,
-            @RequestParam(value = "inputMaterial", required = false) List inputMaterial) {
+            @RequestParam(value = "inputMaterial", required = false) List<Integer> inputMaterial) {
 
         List<Ejercicio> ejercicios = ejercicioService.buscarEjercicios();
-        List<Relaciones> relacion = relacionService.relacion();
-        List<Ejercicio> salida = new ArrayList();
-        List<ArrayList> inputMater = inputMaterial;
 
+        List<Ejercicio> salida = new ArrayList();
+
+        //Recorremos lista de salida de todos los ejercicios y filtramos por zona muscular
         for (int x = 0; x < ejercicios.size(); x++) {
             if (ejercicios.get(x).getZonaMuscular().equalsIgnoreCase(zonaMuscular)
                     || (null != ejercicios.get(x).getZonaMuscular2() && ejercicios.get(x).getZonaMuscular2().equalsIgnoreCase(zonaMuscular))
@@ -52,8 +52,23 @@ public class InicioController {
                 ejer.setImagenUrl(ejercicios.get(x).getImagenUrl());
                 ejer.setId(ejercicios.get(x).getId());
                 salida.add(ejer);
+
             }
         }
+
+        /*
+        TODO Filtro por material
+        for (int y = 0; y < salida.size(); y++) {
+            List<Relaciones> listaRelaciones = ejercicioService.relacion(salida.get(y).getId());
+            for (int l = 0; l < listaRelaciones.size(); l++) {
+                for (int m = 0; null != inputMaterial && m < inputMaterial.size(); m++) {
+                    if (null != inputMaterial && inputMaterial.get(m).toString().equalsIgnoreCase(listaRelaciones.get(l).getId_material().toString())) {
+                        salida.remove(y);
+                    }
+                }
+            }
+        }
+        */
 
         model.addAttribute("ejerciciosSalida", salida);
 

@@ -32,12 +32,11 @@ public class EjercicioService {
         return ejercicioRepository.getOne(id);
     }
 
-    public List<Material> buscarMaterial() {
-        return materialRepository.findAll(Sort.by("nombreMaterial"));
+    /*
+    TODO Filtro por material
+    public List<Relaciones> relacion(Integer idEjercicio) {
+        return relacionRepository.search(idEjercicio);
     }
-
-    public List<Relaciones> relacion() {
-        return relacionRepository.findAll();
-    }
+    */
 
 }

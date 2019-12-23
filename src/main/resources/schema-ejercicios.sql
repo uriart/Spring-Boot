@@ -23,15 +23,3 @@ insert into ejercicio
 ('Zancada', 'img/imgTemplate.jpg', 'trenInferior', 'gluteos'),
 ('Elevación frontal', 'img/imgTemplate.jpg', 'trenSuperior', 'hombro'),
 ('Elevación lateral', 'img/imgTemplate.jpg', 'trenSuperior', 'hombro');
-
-
-drop table if exists material;
-
-create table material (
-    id int primary key auto_increment,
-    nombre_material varchar(200) not null
-);
-
-INSERT INTO `material` 
-(`nombre_material`) VALUES 
-('barra'), ('banco'), ('barra dominadas'), ('mancueras');
