@@ -1,8 +1,7 @@
 package com.uriart.workout.controller;
 
+import com.uriart.workout.domain.ApiAccess;
 import com.uriart.workout.domain.Ejercicio;
-import com.uriart.workout.domain.Material;
-import com.uriart.workout.domain.Relaciones;
 import com.uriart.workout.service.EjercicioService;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class InicioController {
@@ -68,8 +68,7 @@ public class InicioController {
                 }
             }
         }
-        */
-
+         */
         model.addAttribute("ejerciciosSalida", salida);
 
         return "inicio";
@@ -79,9 +78,31 @@ public class InicioController {
     public String paginaDetalle(Model model,
             @RequestParam("idEjercicio") String idEjercicio) {
 
-        Ejercicio detalleEjercicio = ejercicioService.detalleEjercicio(Integer.valueOf(idEjercicio));
-        model.addAttribute("detallesSalida", detalleEjercicio);
+        //Ejercicio detalleEjercicio = ejercicioService.detalleEjercicio(Integer.valueOf(idEjercicio));
+        //model.addAttribute("detallesSalida", detalleEjercicio);
 
+        
+        
+        
+        
+        //Prueba acceso API pública
+        RestTemplate restTemplate = new RestTemplate();
+        ApiAccess obj = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", ApiAccess.class);
+       
+        System.out.print("value: "+obj.getValue());
+        System.out.print("type: "+obj.getType());
+        
+        List<ApiAccess> apiAccess = null;
+        model.addAttribute("detallesSalida", obj);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return "detalles";
     }
 }
