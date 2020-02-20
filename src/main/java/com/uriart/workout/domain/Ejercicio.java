@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ejercicio {
@@ -14,6 +15,8 @@ public class Ejercicio {
     private String imagenUrl;
     private String zonaMuscular;
     private String zonaMuscular2;
+    @ManyToOne
+    private Entrenador entrenador;
 
     public String getZonaMuscular2() {
         return zonaMuscular2;
@@ -53,6 +56,14 @@ public class Ejercicio {
 
     public void setZonaMuscular(String zonaMuscular) {
         this.zonaMuscular = zonaMuscular;
+    }
+
+    public Entrenador getEntrenador() {
+        return entrenador;
+    }
+
+    public void setEntrenador(Entrenador entrenador) {
+        this.entrenador = entrenador;
     }
   
 }

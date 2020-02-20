@@ -16,7 +16,7 @@ public class EjercicioService {
     }
 
     public List<Ejercicio> buscarEjercicios() {
-        return ejercicioRepository.findAll(Sort.by("nombre"));
+        return ejercicioRepository.buscarTodos();
     }
 
     public Ejercicio detalleEjercicio(Integer id) {
