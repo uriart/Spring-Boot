@@ -3,7 +3,6 @@ package com.uriart.workout.service;
 import com.uriart.workout.domain.Ejercicio;
 import com.uriart.workout.repository.EjercicioRepository;
 import java.util.List;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,11 +23,18 @@ public class EjercicioService {
         return ejercicioRepository.getOne(id);
     }
 
+    public List<Ejercicio> buscarPorEntrenador(int entrenadorId) {
+        return ejercicioRepository.findByEntrenadorId(entrenadorId);
+    }
+
+    public List<Ejercicio> buscar(String consulta) {
+        return ejercicioRepository.findByNombreContaining(consulta);
+    }
+
     /*
     TODO Filtro por material
     public List<Relaciones> relacion(Integer idEjercicio) {
         return relacionRepository.search(idEjercicio);
     }
-    */
-
+     */
 }

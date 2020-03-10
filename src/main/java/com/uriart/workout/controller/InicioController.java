@@ -82,4 +82,14 @@ public class InicioController {
 
         return "detalles";
     }
+    
+      @RequestMapping("/ejerciciosPorEntrenador")
+    public String listarEjerciciosPorEntrenador(int entrenadorId, Model model) {
+        
+        List<Ejercicio> ejercicios = ejercicioService.buscarPorEntrenador(entrenadorId);
+        model.addAttribute("ejerciciosSalida", ejercicios);
+        
+        return "inicio";
+    }
+    
 }

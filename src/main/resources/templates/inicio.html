@@ -66,13 +66,15 @@
                     <img th:src="${ejercicio.imagenUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 th:text="${ejercicio.nombre}" class="card-title"></h5>
+                        <a th:href="@{/ejerciciosPorEntrenador(entrenadorId=${ejercicio.entrenador.id})}" class="badge badge-secondary" th:text="${ejercicio.entrenador.nombre}"></a>
                     </div>
+                    <!-- Form + button submit para enviar parametros al controlador -->
                     <form class="card-footer text-muted" action="/detalles" method="POST">
                         <input type="text" th:value="${ejercicio.id}" name="idEjercicio" hidden>
                         <button type="submit" class="btn btn-info">Detalles</button>
-                        <!-- Alternativa para pasar parámetros al controller -->
-                        <!-- <a th:href="@{/detalles/(idEjercicio=${ejercicio.id})}" class="btn btn-info">Detalles</a> -->
                     </form>
+                    <!-- Alternativa para pasar parámetros al controller -->
+                    <!-- <a th:href="@{/detalles/(idEjercicio=${ejercicio.id})}" class="btn btn-info">Detalles</a> -->
                 </div>
             </div>
         </div>
