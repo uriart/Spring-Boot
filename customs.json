@@ -10,11 +10,15 @@
         "th:src": {
             "context": "img"
         },
+        "th:action": {},
         "href": {
             "context": "button"
         },
         "th:each": {
             "context": "div"
+        },
+        "th:placeholder": {
+            "context": "input"
         },
         "value": {
             "context": "select"

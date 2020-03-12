@@ -31,9 +31,7 @@ public class InicioController {
     }
 
     @RequestMapping(value = "/filtrar", method = RequestMethod.POST)
-    public String filtrarEjercicio(Model model,
-            @RequestParam("inputZonaMuscular") String zonaMuscular,
-            @RequestParam(value = "inputMaterial", required = false) List<Integer> inputMaterial) {
+    public String filtrarEjercicio(Model model, String zonaMuscular) {
 
         List<Ejercicio> ejercicios = ejercicioService.buscarEjercicios();
 
@@ -55,27 +53,13 @@ public class InicioController {
             }
         }
 
-        /*
-        TODO Filtro por material
-        for (int y = 0; y < salida.size(); y++) {
-            List<Relaciones> listaRelaciones = ejercicioService.relacion(salida.get(y).getId());
-            for (int l = 0; l < listaRelaciones.size(); l++) {
-                for (int m = 0; null != inputMaterial && m < inputMaterial.size(); m++) {
-                    if (null != inputMaterial && inputMaterial.get(m).toString().equalsIgnoreCase(listaRelaciones.get(l).getId_material().toString())) {
-                        salida.remove(y);
-                    }
-                }
-            }
-        }
-         */
         model.addAttribute("ejerciciosSalida", salida);
 
         return "inicio";
     }
 
     @RequestMapping("/detalles")
-    public String paginaDetalle(Model model,
-            @RequestParam("idEjercicio") String idEjercicio) {
+    public String paginaDetalle(String idEjercicio, Model model) {
 
         Ejercicio detalleEjercicio = ejercicioService.detalleEjercicio(Integer.valueOf(idEjercicio));
         model.addAttribute("detallesSalida", detalleEjercicio);
@@ -87,6 +71,15 @@ public class InicioController {
     public String listarEjerciciosPorEntrenador(int entrenadorId, Model model) {
         
         List<Ejercicio> ejercicios = ejercicioService.buscarPorEntrenador(entrenadorId);
+        model.addAttribute("ejerciciosSalida", ejercicios);
+        
+        return "inicio";
+    }
+    
+    @RequestMapping("/buscar")
+    public String buscar(@RequestParam("q") String consulta, Model model) {
+        
+        List<Ejercicio> ejercicios = ejercicioService.buscar(consulta);
         model.addAttribute("ejerciciosSalida", ejercicios);
         
         return "inicio";

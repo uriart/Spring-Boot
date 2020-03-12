@@ -15,6 +15,10 @@
                 <img src="img/weight_icon.png" width="30" height="30" alt="">
                 Do it!
             </a>
+            <form th:action="@{/buscar}" class="form-inline my-2 my-lg-0">
+                <input name="q" class="form-control mr-sm-2" type="search" th:placeholder="${param.q}" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
         </nav>
 
         <!-- FILTRO -->
@@ -34,9 +38,9 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputZonaMuscular">Zona muscular</label>
+                                <label class="input-group-text" for="zonaMuscular">Zona muscular</label>
                             </div>
-                            <select class="custom-select"  name="inputZonaMuscular" id="inputZonaMuscular">
+                            <select class="custom-select"  name="zonaMuscular" id="zonaMuscular">
                                 <option value="1">Todas</option>
                                 <option value="trenSuperior">Tren superior</option>
                                 <option value="trenInferior">Tren inferior</option>
