@@ -30,11 +30,8 @@ public class EjercicioService {
     public List<Ejercicio> buscar(String consulta) {
         return ejercicioRepository.findByNombreContaining(consulta);
     }
-
-    /*
-    TODO Filtro por material
-    public List<Relaciones> relacion(Integer idEjercicio) {
-        return relacionRepository.search(idEjercicio);
+    
+    public Ejercicio guardar(Ejercicio ejercicio) {
+        return ejercicioRepository.save(ejercicio);
     }
-     */
 }

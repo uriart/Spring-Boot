@@ -20,6 +20,8 @@
         "th:placeholder": {
             "context": "input"
         },
+        "th:field": {},
+        "th:href": {},
         "value": {
             "context": "select"
         }

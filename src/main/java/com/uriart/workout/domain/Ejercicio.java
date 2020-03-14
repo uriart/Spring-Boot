@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Ejercicio {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private String imagenUrl;
@@ -65,5 +65,10 @@ public class Ejercicio {
     public void setEntrenador(Entrenador entrenador) {
         this.entrenador = entrenador;
     }
-  
+
+    @Override
+    public String toString() {
+        return "Ejercicio{" + "id=" + id + ", nombre=" + nombre + ", imagenUrl=" + imagenUrl + ", zonaMuscular=" + zonaMuscular + ", zonaMuscular2=" + zonaMuscular2 + ", entrenador=" + entrenador.getId() + '}';
+    }
+    
 }

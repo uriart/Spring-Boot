@@ -16,16 +16,45 @@
                 Do it!
             </a>
         </nav>
-    <body>
-        <h1>Prueba para git</h1>
+        <div class="container mt-4 ej-filtrados">
 
-        <h5 th:text="${detallesSalida.id}"> ID del ejercicio seleccionado</h5>
-        <h5 th:text="${detallesSalida.nombre}"> Nombre del ejercicio seleccionado</h5>
-        <h5 th:text="${detallesSalida.zonaMuscular}"> Zona musucular del ejercicio seleccionado</h5>
-        <h5 th:text="${detallesSalida.zonaMuscular2}"> Zona musucular2 del ejercicio seleccionado</h5>
-        <h5 th:text="${detallesSalida.entrenador.nombre}"> Entrenador</h5>
-        <img th:src="${detallesSalida.imagenUrl}" alt="...">
-        
+            <div class="row">
+                <div class="col col -md-12 text-right mb-4">
+                    <a th:href="@{/ejercicios/crear(id=${detallesSalida.id})}" class="btn btn-outline-success">Modificar ejercicio</a>
+                </div>
+            </div>
+
+
+            <h1>Prueba para git</h1>
+            <form>
+                <div>
+                    <label>ID:</label>
+                    <output type="text" th:text="${detallesSalida.id}">
+                </div>
+                <div>
+                    <label>Nombre:</label>
+                    <output type="text" th:text="${detallesSalida.nombre}">
+                </div>
+                <div>
+                    <label>Zona musucular:</label>
+                    <output type="text" th:text="${detallesSalida.zonaMuscular}">
+                </div>
+                <div>
+                    <label>Zona musucular2:</label>
+                    <output type="text" th:text="${detallesSalida.zonaMuscular2}">
+                </div>
+                <div>
+                    <label>Entrenador:</label>
+                    <output type="text" th:text="${detallesSalida.entrenador.nombre}">
+                </div>
+                <div>
+                    <img th:src="${detallesSalida.imagenUrl}" alt="..."/>
+                </div>
+
+
+            </form>
+        </div>
+    <body>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

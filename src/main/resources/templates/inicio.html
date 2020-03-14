@@ -65,6 +65,11 @@
 
     <div class="container mt-4 ej-filtrados">
         <div class="row">
+            <div class="col col -md-12 text-right mb-4">
+                <a th:href="@{/ejercicios/crear}" class="btn btn-outline-success">Crear ejercicio</a>
+            </div>
+        </div>
+        <div class="row">
             <div th:each="ejercicio : ${ejerciciosSalida}" class="col-md-3 mb-4">
                 <div class="card">
                     <img th:src="${ejercicio.imagenUrl}" class="card-img-top" alt="...">

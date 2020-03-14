@@ -34,11 +34,11 @@ create table entrenador (
 
 insert into entrenador
 (id, nombre, sitio_web) values
-(1, 'Oriol Pedro','https://www.oriolartes.com'),
-(2, 'Rx mountain','https://www.rx.com'),
-(3, 'Edu Crai','https://www.educortes.com'),
-(4, 'Alex Opla','https://www.aleix.com'),
-(5, 'Nuria Esmeralda','https://www.nuria.com');
+(1, 'Entrenador 1','https://www.1.com'),
+(2, 'Entrenador 2','https://www.2.com'),
+(3, 'Entrenador 3','https://www.3.com'),
+(4, 'Entrenador 4','https://www.4.com'),
+(5, 'Entrenador 5','https://www.5.com');
 
 
 alter table ejercicio

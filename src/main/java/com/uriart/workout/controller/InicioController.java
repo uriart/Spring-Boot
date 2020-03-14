@@ -14,13 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InicioController {
 
     private final EjercicioService ejercicioService;
-    private final EjercicioService materialService;
-    private final EjercicioService relacionService;
 
-    public InicioController(EjercicioService ejercicioService, EjercicioService materialService, EjercicioService relacionService) {
+    public InicioController(EjercicioService ejercicioService) {
         this.ejercicioService = ejercicioService;
-        this.materialService = materialService;
-        this.relacionService = relacionService;
     }
 
     @RequestMapping("/")
